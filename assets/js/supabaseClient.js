@@ -2,12 +2,12 @@
   'use strict';
 
   if (!window.supabase || typeof window.supabase.createClient !== 'function') {
-    console.error('[Cifrei] SDK do Supabase não carregado.');
+    console.error('[BAS_UPW] SDK do Supabase não carregado.');
     return;
   }
 
-  const SUPABASE_URL = 'https://bgfchuxvuanjiepchfxq.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_QJzlVnYT2CF8-BrTbsfOlw_EJcrY8bv';
+  const SUPABASE_URL = 'https://pcbflajcmsbkunzhqoom.supabase.co';
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ENnW7nvG_xYNwY1xxyPXPg_IEjTPw9z';
 
   const client = window.supabase.createClient(
     SUPABASE_URL,
@@ -24,5 +24,5 @@
   window.cifreiSupabase = client;
   window.supabaseClient = client;
 
-  console.log('[Cifrei] Supabase client inicializado com sucesso.');
+  console.log('[BAS_UPW] Supabase client inicializado com sucesso.');
 })();

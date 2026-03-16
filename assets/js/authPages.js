@@ -164,7 +164,7 @@
       const body = await response.text();
       return body.split('\n').some(line => line.split(':')[0]?.trim() === suffix);
     } catch (error) {
-      console.warn('[Cifrei] Não foi possível consultar senhas vazadas no momento.', error);
+      console.warn('[BAS_UPW] Não foi possível consultar senhas vazadas no momento.', error);
       return false;
     }
   }
@@ -309,7 +309,7 @@
       return 'Não foi possível realizar o login. Verifique o e-mail e a senha.';
     }
     if (message.includes('email not confirmed')) {
-      return 'Seu e-mail ainda não foi confirmado. Abra a mensagem enviada pelo Cifrei e clique no link de confirmação.';
+      return 'Seu e-mail ainda não foi confirmado. Abra a mensagem enviada pelo BAS_UPW e clique no link de confirmação.';
     }
     if (message.includes('user already registered')) {
       return 'Já existe um usuário cadastrado com este e-mail. Digite outro e-mail, por favor.';
@@ -642,7 +642,7 @@
       updateResetButton();
 
       if (error) {
-         console.error('[Cifrei] resetPasswordForEmail error:', error);
+         console.error('[BAS_UPW] resetPasswordForEmail error:', error);
 //        showEnterNotice(getFriendlyAuthErrorMessage(error, 'Não foi possível enviar o link de redefinição de senha.'));
           showEnterNotice(error.message || 'Não foi possível enviar o link de redefinição de senha.');
         return;
