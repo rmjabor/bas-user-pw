@@ -153,9 +153,7 @@
       const suffix = hash.slice(5);
       const response = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`, {
         method: 'GET',
-        headers: {
-          'Add-Padding': 'true'
-        }
+        headers: { 'Add-Padding': 'true' }
       });
 
       if (!response.ok) return false;
@@ -172,10 +170,8 @@
     for (let code = 33; code <= 126; code += 1) {
       chars.push(String.fromCharCode(code));
     }
-
     const array = new Uint32Array(length);
     crypto.getRandomValues(array);
-
     return Array.from(array, number => chars[number % chars.length]).join('');
   }
 
@@ -183,10 +179,7 @@
     try {
       const raw = localStorage.getItem(STORAGE_KEYS.LOGIN_GUARD);
       const parsed = raw ? JSON.parse(raw) : null;
-      return {
-        count: parsed?.count || 0,
-        lockUntil: parsed?.lockUntil || 0
-      };
+      return { count: parsed?.count || 0, lockUntil: parsed?.lockUntil || 0 };
     } catch (error) {
       return { count: 0, lockUntil: 0 };
     }
@@ -280,9 +273,7 @@
         onHidden = typeof onClose === 'function' ? onClose : null;
         modal.show();
       },
-      hide() {
-        modal?.hide();
-      },
+      hide() { modal?.hide(); },
       element,
       modal,
       textElement
@@ -302,32 +293,14 @@
 
   function getFriendlyAuthErrorMessage(error, fallback) {
     const message = String(error?.message || '').toLowerCase();
-
-    if (message.includes('invalid login credentials')) {
-      return 'Não foi possível realizar o login. Verifique o e-mail e a senha.';
-    }
-    if (message.includes('email not confirmed')) {
-      return 'Seu e-mail ainda não foi confirmado. Abra a mensagem enviada pelo BAS_UPW e clique no link de confirmação.';
-    }
-    if (message.includes('user already registered')) {
-      return 'Já existe um usuário cadastrado com este e-mail. Digite outro e-mail, por favor.';
-    }
-    if (message.includes('signup is disabled')) {
-      return 'O cadastro de novos usuários está indisponível no momento.';
-    }
-    if (message.includes('password should be at least')) {
-      return 'A senha precisa ter pelo menos 12 caracteres.';
-    }
-    if (message.includes('same password')) {
-      return 'Escolha uma senha diferente da atual.';
-    }
-    if (message.includes('expired')) {
-      return 'O link expirou. Solicite um novo link de redefinição de senha.';
-    }
-    if (message.includes('invalid') && message.includes('token')) {
-      return 'O link informado é inválido. Solicite um novo link de redefinição de senha.';
-    }
-
+    if (message.includes('invalid login credentials')) return 'Não foi possível realizar o login. Verifique o e-mail e a senha.';
+    if (message.includes('email not confirmed')) return 'Seu e-mail ainda não foi confirmado. Abra a mensagem enviada pelo BAS_UPW e clique no link de confirmação.';
+    if (message.includes('user already registered')) return 'Já existe um usuário cadastrado com este e-mail. Digite outro e-mail, por favor.';
+    if (message.includes('signup is disabled')) return 'O cadastro de novos usuários está indisponível no momento.';
+    if (message.includes('password should be at least')) return 'A senha precisa ter pelo menos 12 caracteres.';
+    if (message.includes('same password')) return 'Escolha uma senha diferente da atual.';
+    if (message.includes('expired')) return 'O link expirou. Solicite um novo link de redefinição de senha.';
+    if (message.includes('invalid') && message.includes('token')) return 'O link informado é inválido. Solicite um novo link de redefinição de senha.';
     return fallback || 'Não foi possível concluir a operação no momento.';
   }
 
@@ -360,7 +333,6 @@
       }
 
       if (currentRequest !== requestCounter) return lastState;
-
       lastState = { weak, pwned };
 
       if (warningLabel) {
@@ -388,16 +360,13 @@
 
     function queueRefresh() {
       window.clearTimeout(queueRefresh._timer);
-      queueRefresh._timer = window.setTimeout(() => {
-        refresh();
-      }, 350);
+      queueRefresh._timer = window.setTimeout(() => { refresh(); }, 350);
     }
 
     if (input) {
       input.addEventListener('input', queueRefresh);
       input.addEventListener('blur', () => refresh());
     }
-
     [emailInput, firstNameInput, lastNameInput].forEach(element => {
       if (element) element.addEventListener('input', queueRefresh);
     });
@@ -405,10 +374,7 @@
     setHtmlVisibility(warningLabel, false);
     setHtmlVisibility(spacesLabel, false);
 
-    return {
-      refresh,
-      getState: () => lastState
-    };
+    return { refresh, getState: () => lastState };
   }
 
   async function initCadastroPage() {
@@ -448,9 +414,7 @@
 
     function showSignupNotice(message, { redirectToLogin = false } = {}) {
       signupNotice.show(message, {
-        onClose: redirectToLogin ? () => {
-          window.location.href = 'entrar.html';
-        } : null
+        onClose: redirectToLogin ? () => { window.location.href = 'entrar.html'; } : null
       });
     }
 
@@ -461,7 +425,8 @@
     }
 
     function isFormFilled() {
-      return [emailInput, firstNameInput, lastNameInput, passwordInput].every(input => String(input.value || '').trim() !== '') && termsCheck?.checked;
+      return [emailInput, firstNameInput, lastNameInput, passwordInput].every(input => String(input.value || '').trim() !== '')
+        && !!termsCheck?.checked;
     }
 
     function updateButtonState() {
@@ -469,15 +434,10 @@
       const emailValid = looksLikeEmail(emailInput.value);
       const passwordValid = isPasswordValid();
       const enabled = allFilled && emailValid && passwordValid;
-
       setButtonEnabledState(submitButton, enabled);
-      if (enabled) {
-        setButtonText(submitButton, 'Cadastrar usuário');
-      } else if (!allFilled) {
-        setButtonText(submitButton, 'Preencha todos os campos e concorde com os termos');
-      } else {
-        setButtonText(submitButton, 'E-mail ou senha inválidos');
-      }
+      if (enabled) setButtonText(submitButton, 'Cadastrar usuário');
+      else if (!allFilled) setButtonText(submitButton, 'Preencha todos os campos e concorde com os termos');
+      else setButtonText(submitButton, 'E-mail ou senha inválidos');
     }
 
     [emailInput, firstNameInput, lastNameInput].forEach(input => input.addEventListener('input', updateButtonState));
@@ -516,14 +476,11 @@
       };
 
       const { data, error } = await supabase.auth.signUp(payload);
-
       if (error) {
         const message = getFriendlyAuthErrorMessage(error, 'Não foi possível concluir o cadastro.');
-        if (message.includes('Já existe um usuário')) {
-          showSignupNotice('Já existe um usuário cadastrado com este e-mail. Digite outro e-mail, por favor.');
-        } else {
-          showSignupNotice(message);
-        }
+        showSignupNotice(message.includes('Já existe um usuário')
+          ? 'Já existe um usuário cadastrado com este e-mail. Digite outro e-mail, por favor.'
+          : message);
         updateButtonState();
         return;
       }
@@ -536,9 +493,7 @@
       }
 
       sessionStorage.setItem(STORAGE_KEYS.PENDING_LOGIN_EMAIL, payload.email);
-      showSignupNotice('Cadastro realizado. Verifique seu e-mail para confirmar a conta antes de entrar.', {
-        redirectToLogin: true
-      });
+      showSignupNotice('Cadastro realizado. Verifique seu e-mail para confirmar a conta antes de entrar.', { redirectToLogin: true });
     });
 
     updateButtonState();
@@ -584,21 +539,15 @@
     }
 
     function updateLoginButton() {
-      const enabled = looksLikeEmail(emailInput.value) && isPasswordValid();
-      setButtonEnabledState(submitButton, enabled);
+      setButtonEnabledState(submitButton, looksLikeEmail(emailInput.value) && isPasswordValid());
     }
 
     function updateResetButton() {
       setButtonEnabledState(sendResetButton, looksLikeEmail(resetEmailInput?.value));
     }
 
-    function showEnterNotice(text, options = {}) {
-      enterNotice.show(text, options);
-    }
-
-    function showLoginError(text, options = {}) {
-      showEnterNotice(text, options);
-    }
+    function showEnterNotice(text, options = {}) { enterNotice.show(text, options); }
+    function showLoginError(text, options = {}) { showEnterNotice(text, options); }
 
     emailInput.addEventListener('input', updateLoginButton);
     passwordInput.addEventListener('input', () => {
@@ -611,14 +560,10 @@
       showPasswordIcon.addEventListener('click', () => togglePasswordVisibility(passwordInput, showPasswordIcon));
     }
 
-    signupButton?.addEventListener('click', () => {
-      window.location.href = 'cadastrar.html';
-    });
+    signupButton?.addEventListener('click', () => { window.location.href = 'cadastrar.html'; });
 
     forgotPasswordText?.addEventListener('click', () => {
-      if (looksLikeEmail(emailInput.value)) {
-        resetEmailInput.value = String(emailInput.value || '').trim();
-      }
+      if (looksLikeEmail(emailInput.value)) resetEmailInput.value = String(emailInput.value || '').trim();
       updateResetButton();
       resetModal?.show();
     });
@@ -631,9 +576,7 @@
       setButtonEnabledState(sendResetButton, false);
       sendResetButton.textContent = 'Enviando...';
 
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: buildPageUrl('resetpw.html')
-      });
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: buildPageUrl('resetpw.html') });
 
       sendResetButton.textContent = 'Enviar Link';
       updateResetButton();
@@ -740,9 +683,7 @@
     const { data: sessionData } = await supabase.auth.getSession();
     if (!sessionData?.session) {
       showResetNotice('Abra esta página pelo link de redefinição enviado ao seu e-mail.', {
-        onClose: () => {
-          window.location.href = 'entrar.html';
-        }
+        onClose: () => { window.location.href = 'entrar.html'; }
       });
       return;
     }
@@ -755,10 +696,7 @@
       setButtonEnabledState(submitButton, false);
       setButtonText(submitButton, 'Confirmando...');
 
-      const { error } = await supabase.auth.updateUser({
-        password: getTrimmedPassword(passwordInput.value)
-      });
-
+      const { error } = await supabase.auth.updateUser({ password: getTrimmedPassword(passwordInput.value) });
       if (error) {
         showResetNotice(getFriendlyAuthErrorMessage(error, 'Não foi possível redefinir a senha.'));
         updateButtonState();
@@ -772,9 +710,7 @@
       }
       await supabase.auth.signOut();
       showResetNotice('Senha redefinida com sucesso. Faça login novamente.', {
-        onClose: () => {
-          window.location.href = 'entrar.html';
-        }
+        onClose: () => { window.location.href = 'entrar.html'; }
       });
     });
 
@@ -798,9 +734,7 @@
         console.log('[BAS_UPW] Logout iniciado');
         setButtonEnabledState(btnLogout, false);
         setButtonText(btnLogout, 'Saindo...');
-
         await supabase.auth.signOut();
-
         console.log('[BAS_UPW] Logout realizado');
         window.location.href = 'entrar.html';
       } catch (error) {
@@ -814,9 +748,8 @@
   function initSharedUiBehaviors() {
     const modalRedef = qs('mdlRedefSenha');
     const inputEmailRedef = qs('inputEmailLinkRedef');
-
     if (modalRedef && inputEmailRedef) {
-      modalRedef.addEventListener('hidden.bs.modal', function () {
+      modalRedef.addEventListener('hidden.bs.modal', () => {
         inputEmailRedef.value = '';
       });
     }
