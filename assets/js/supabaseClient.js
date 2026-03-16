@@ -21,7 +21,7 @@
     }
   );
 
-  window.cifreiSupabase = client;
+  window.basupwSupabase = client;
   window.supabaseClient = client;
 
   console.log('[BAS_UPW] Supabase client inicializado com sucesso.');

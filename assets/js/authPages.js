@@ -2,9 +2,9 @@
   'use strict';
 
   const STORAGE_KEYS = {
-    RESET_EMAIL: 'cifrei_mock_reset_email_v1',
-    LOGIN_GUARD: 'cifrei_login_guard_v1',
-    PENDING_LOGIN_EMAIL: 'cifrei_pending_login_email_v1'
+    RESET_EMAIL: 'basupw_mock_reset_email_v1',
+    LOGIN_GUARD: 'basupw_login_guard_v1',
+    PENDING_LOGIN_EMAIL: 'basupw_pending_login_email_v1'
   };
 
   const LOGIN_MAX_ATTEMPTS = 5;
@@ -36,7 +36,7 @@
   }
 
   function getSupabaseClient() {
-    return window.cifreiSupabase || window.supabaseClient || null;
+    return window.basupwSupabase || window.supabaseClient || null;
   }
   
 
