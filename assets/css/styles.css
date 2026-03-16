@@ -1,0 +1,126 @@
+.clickable {
+  cursor: pointer;
+}
+
+.botao-custom:active {
+  box-shadow: none !important;
+  transform: scale(0.99);
+  opacity: 0.80;
+}
+
+.icone-custom:active {
+  color: #747474;
+  transform: scale(0.95);
+}
+
+.divInputPadrao {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.inputPadrao {
+  height: 45px;
+  width: 100%;
+  min-width: 0;
+  padding: 6px 5px 6px 45px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fd641d;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  color: #424242;
+  flex-grow: 1;
+  box-sizing: border-box;
+  line-height: 1;
+  resize: none;
+  overflow: hidden !important;
+}
+
+.inputPadrao::placeholder {
+  color: #b5b5b5;
+  opacity: 1;
+}
+
+.inputGerarSenha {
+  height: 35px;
+  width: 45px;
+  padding: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fd641d;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1;
+  resize: none;
+  overflow: hidden !important;
+}
+
+#divIconeRefresh {
+  flex-shrink: 0;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.fade .modal-dialog {
+  transform: translate3d(0, 56px, 0) scale(0.985) !important;
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(.22,.61,.36,1), opacity 0.6s ease-out !important;
+  will-change: transform, opacity;
+}
+
+.modal.show .modal-dialog {
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  opacity: 1 !important;
+}
+
+.body-padrao {
+  width: 100%;
+  max-width: 600px;
+  min-width: 320px;
+  padding: 0px 20px 30px 20px;
+  box-sizing: border-box;
+}
+
+.icnInputPadrao {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  font-size: 25px;
+  line-height: 1;
+  text-align: center;
+  color: #424242;
+  z-index: 1;
+}
+
+.btnPadrao {
+  width: 100%;
+  border-style: none;
+  border-radius: 3;
+  height: 45px;
+  text-align: center;
+  box-shadow: 1px 1px 3px 0px #a7a7a7, 1px 1px 3px 0px #a7a7a7;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15 px;
+  color: #ffffff;
+}
+
+.btnPadrao:active {
+  box-shadow: none !important;
+  transform: translateY(2px);
+  opacity: 0.80;
+}
+
+.btnPadrao:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.2);
+  /*Opcional: tira um pouco da vibração da cor;*/
+}
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="d-flex justify-content-center" data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BonecoSupabaseUserPw</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="assets/css/Open%20Sans.css">
+    <link rel="stylesheet" href="assets/css/Roboto.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="d-flex flex-column body-padrao">
+    <div class="modal fade" role="dialog" tabindex="-1" data-bs-backdrop="static" id="mdlAvisosResetPw" style="background: transparent;margin-top: 80px;" area-hiden="true">
+        <div class="modal-dialog modal-confirma-excluir" role="document" id="dlgConfirmaExcluirCifra">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center" style="background: #ffffff;border-radius: 0px 0px 0px 0px;border-style: none;border-top-left-radius: 10px;border-top-right-radius: 10px;"><img src="assets/img/Logo.png" width="38" height="52" style="width: 52px;"></div>
+                <div class="modal-body" style="background: #ffffff;padding: 0px;padding-top: 0px;height: auto;">
+                    <p id="txtAvisosResetPw" style="font-size: 13px;text-align: center;margin-bottom: 0px;font-family: 'Open Sans', sans-serif;width: calc(100% - 30px);min-width: 200px;max-width: 290px;margin-right: auto;margin-left: auto;line-height: 1.2;color: #383839;padding: 4px;">Não foi possível realizar o login. Verifique o e-mail e a senha.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center" style="background: #ffffff;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;border-style: none;height: 80px;padding-top: 8px;padding-bottom: 16px;"><button class="btn btn-light" id="btnOkAvisosResetPw" type="button" data-bs-dismiss="modal" style="font-family: 'Open Sans', sans-serif;font-size: 16px;background: #fd641d;color: rgb(255,255,255);width: 90px;border-style: none;box-shadow: 1px 1px 3px #a7a7a7;margin-right: 10px;">OK</button></div>
+            </div>
+        </div>
+    </div><img width="605" height="605" src="assets/img/Logo.png" style="width: 80px;height: 80px;margin-top: 50px;margin-right: auto;margin-left: auto;">
+    <h2 style="margin-top: 30px;text-align: center;font-family: Roboto, sans-serif;font-weight: bold;">Redefinição de senha</h2><button class="btn btn-primary botao-custom" id="btnGenerateResetPw" type="button" style="width: 175px;height: 30px;font-size: 13px;padding-top: 1px;padding-bottom: 1px;background: rgba(103,63,133,0.9);border-radius: 5px;box-shadow: 1px 1px 3px 0px #a7a7a7;border-style: none;margin-top: 20px;position: relative;">Gerar senha aleatória</button>
+    <div id="divSenhaCadastro" class="divInputPadrao" style="margin-top: 10px;"><i class="icon ion-lock-combination icnInputPadrao" style="font-size: 27px;"></i><input type="password" id="inputSenhaResetPw" class="inputPadrao" placeholder="Nova senha (12 a 64 caracteres)"><i class="icon ion-eye end-0 icnInputPadrao" id="icnMostrarSenhaResetPw" style="margin-left: 0px;margin-right: 8px;color: #919191;"></i></div><span class="d-none" id="lblAvisoProbResetPw" style="font-size: 13px;font-family: 'Open Sans', sans-serif;color: #7a7979;border-radius: 6px;padding: 7px;margin-top: 10px;border: 1px solid #c9c9c9;"><strong><span style="color: rgb(235, 68, 68);">Fraca:</span></strong>&nbsp;A senha que você escolheu é fraca e pode ser facilmente identificada. Considere usar uma senha mais forte.</span><button class="btn btn-primary btnPadrao" id="btnConfirmarResetPw" type="button" style="background: #fd641d;margin-top: 20px;">Confirmar</button>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabaseClient.js"></script>
+    <script src="assets/js/authPages.js"></script>
+</body>
+
+</html>

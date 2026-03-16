@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="d-flex justify-content-center" data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>BonecoSupabaseUserPw</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon-512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="assets/css/Open%20Sans.css">
+    <link rel="stylesheet" href="assets/css/Roboto.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="d-flex flex-column body-padrao">
+    <div class="modal fade" role="dialog" tabindex="-1" data-bs-backdrop="static" id="mdlAvisosEntrar" style="background: transparent;margin-top: 80px;" area-hiden="true">
+        <div class="modal-dialog modal-confirma-excluir" role="document" id="dlgConfirmaExcluirCifra">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-center" style="background: #ffffff;border-radius: 0px 0px 0px 0px;border-style: none;border-top-left-radius: 10px;border-top-right-radius: 10px;"><img src="assets/img/Logo.png" width="38" height="52" style="width: 52px;"></div>
+                <div class="modal-body" style="background: #ffffff;padding: 0px;padding-top: 0px;height: auto;">
+                    <p id="txtAvisosEntrar" style="font-size: 13px;text-align: center;margin-bottom: 0px;font-family: 'Open Sans', sans-serif;width: calc(100% - 30px);min-width: 200px;max-width: 290px;margin-right: auto;margin-left: auto;line-height: 1.2;color: #383839;padding: 4px;">Não foi possível realizar o login. Verifique o e-mail e a senha.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center" style="background: #ffffff;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;border-style: none;height: 80px;padding-top: 8px;padding-bottom: 16px;"><button class="btn btn-light" id="btnOkAvisosEntrar" type="button" data-bs-dismiss="modal" style="font-family: 'Open Sans', sans-serif;font-size: 16px;background: #fd641d;color: rgb(255,255,255);width: 90px;border-style: none;box-shadow: 1px 1px 3px #a7a7a7;margin-right: 10px;">OK</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" data-bs-backdrop="static" id="mdlRedefSenha" style="background: transparent;margin-top: 50px;" area-hiden="true">
+        <div class="modal-dialog modal-confirma-excluir" role="document" id="dlgGerarSenhaAleat">
+            <div class="modal-content modal-confirma-excluir">
+                <div class="modal-header d-flex justify-content-center" style="border-radius: 0px 0px 0px 0px;border-style: none;border-top-left-radius: 10px;border-top-right-radius: 10px;margin-top: 20px;"><img src="assets/img/Logo.png" width="38" height="52" style="width: 52px;"></div>
+                <div class="modal-body" style="background: #ffffff;padding: 0px;padding-top: 0px;height: auto;padding-right: 15px;padding-left: 15px;color: #424242;">
+                    <h2 style="text-align: center;font-family: Roboto, sans-serif;letter-spacing: 0px;font-weight: bold;">Esqueci minha senha</h2>
+                    <p style="font-size: 14px;font-family: 'Open Sans';text-align: center;color: #424242;">Digite seu e-mail e clique no botão abaixo para receber o <em>link</em> para a tela de redefinição de senha. Caso não receba o e-mail, procure na caixa antispam ou lixo eletrônico.</p>
+                    <div id="divEmailEntrar-1" class="divInputPadrao" style="margin-top: 3px;"><i class="icon ion-android-mail text-center icnInputPadrao"></i><input type="email" id="inputEmailLinkRedef" class="inputPadrao" placeholder="Digite seu e-mail"></div>
+                </div>
+                <div class="modal-footer d-flex flex-column justify-content-center" style="background: #ffffff;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;border-style: none;margin-top: 20px;margin-bottom: 30px;min-height: auto;padding-top: 0px;padding-right: 15px;padding-bottom: 0px;padding-left: 15px;"><button class="btn btnPadrao" id="btnEnviarLink" type="button" data-bs-dismiss="modal" style="font-family: 'Open Sans', sans-serif;font-size: 16px;background: #fd641d;color: rgb(255,255,255);border-style: none;box-shadow: 1px 1px 3px #a7a7a7;margin: 0px;">Enviar Link</button><button class="btn btnPadrao" id="btnSairEnviarLink" type="button" data-bs-dismiss="modal" style="font-family: 'Open Sans', sans-serif;font-size: 16px;background: #673f85;color: rgb(255,255,255);border-style: none;box-shadow: 1px 1px 3px #a7a7a7;margin: 0px;margin-top: 10px;">Sair</button></div>
+            </div>
+        </div>
+    </div><img width="605" height="605" src="assets/img/Logo.png" style="width: 80px;height: 80px;margin-top: 50px;margin-right: auto;margin-left: auto;">
+    <h2 style="margin-top: 30px;text-align: left;font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;">Login</h2>
+    <div class="d-flex flex-row justify-content-end" style="position: relative;"><span id="txtEsqueciSenha" class="clickable" style="font-size: 13px;font-family: 'Open Sans', sans-serif;color: #424242;padding-left: 4px;text-align: right;width: max-content;min-width: 0px;"><span style="text-decoration: underline;">Esqueci minha senha</span></span></div>
+    <div id="divEmailEntrar" class="divInputPadrao" style="margin-top: 4px;"><i class="icon ion-android-mail text-center icnInputPadrao"></i><input type="email" id="inputEmailEntrar" class="inputPadrao" placeholder="Digite seu e-mail"></div>
+    <div id="divSenhaEntrar" class="divInputPadrao" style="margin-top: 10px;"><i class="icon ion-lock-combination icnInputPadrao" style="font-size: 27px;"></i><input type="password" id="inputSenhaEntrar" class="inputPadrao" placeholder="Senha (12 a 64 caracteres)"><i class="icon ion-eye end-0 icnInputPadrao" id="icnMostrarSenhaEntrar" style="margin-left: 0px;margin-right: 8px;color: #919191;"></i></div>
+    <div class="form-check" style="margin-top: 20px;margin-left: 4px;"><input class="form-check-input" type="checkbox" id="checkManterConect"><label class="form-check-label" for="formCheck-1" style="font-family: 'Open Sans';font-size: 13px;">Mantenha-me conectado</label></div><button class="btn btn-primary btnPadrao" id="btnEntrar" type="button" style="background: #fd641d;margin-top: 7px;">Entrar</button><span style="font-size: 13px;font-family: 'Open Sans';font-weight: bold;text-align: center;margin-top: 30px;">Ainda não tem cadastro?</span><button class="btn btn-primary btnPadrao" id="btnCadastre" type="button" style="background: #673f85;margin-top: 8px;">Cadastre-se</button>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabaseClient.js"></script>
+    <script src="assets/js/authPages.js"></script>
+</body>
+
+</html>
